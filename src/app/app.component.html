@@ -1,20 +1,29 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div style="text-align: center;">
+	<h4 [ngStyle]="{'background-color':mygraycolor, 'color':mywhitecolor}" *ngIf="counter > 2" class="myname">My name is {{ name }}</h4>
+	<p>{{ today }}</p>
+	<p>{{ counter }}</p>
+	<input type="text" [(ngModel)]="name" />
+	<button [ngClass]="{'click-button': true}" (click)="btnClicked()">Click me</button>
+	<div *ngFor="let person of people">
+		<h4 [ngClass]="{'person-text': person.age >= 26}" *ngIf="person.age < 28">{{person.name}} is {{person.age}} years old</h4>
+	</div>
+	<div>
+		<h4>{{ today | date:'dd/mm/yyyy' }}</h4>
+		<h4>{{ cash | currency }}</h4>
+	</div>
+	<!-- <app-test></app-test> -->
+	<nav class="main-nav">
+	  	
+		    <li class="main-nav__item" routerLinkActive="active">
+		      <a class="main-nav__link" routerLink="/">Home</a>
+		    </li>
+		    <li class="main-nav__item" routerLinkActive="active"> 
+		      <a class="main-nav__link" routerLink="first">About us</a>
+		    </li>
+		     <li class="main-nav__item" routerLinkActive="active"> 
+		      <a class="main-nav__link" routerLink="second/5">Contact us</a>
+		    </li>
+	  	
+	</nav>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
+<router-outlet></router-outlet>
